@@ -39,13 +39,13 @@ Our team's data model is based on the management of multi-unit residential prope
 
 Query 1 allows management to quickly identify the top revenue-generating properties. A property manager overseeing 25 properties needs to know which locations are bringing in the most money so they can allocate maintenance budgets, staffing, and marketing resources accordingly. 
 
-2.  Lists all tenants who have never submitted a maintenance request.
+2. Lists all tenants who have never submitted a maintenance request.
 
 ![Query 2](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%202.png?raw=true)
 
 Query 2 allows management to identify tenants who have never reported any issues. This could mean two things: either those tenants are satisfied, or they are not reporting problems that could be getting worse over time. A proactive manager could reach out to these tenants for a satisfaction check or schedule a routine unit inspection to catch hidden issues like water damage or pest problems before they become expensive.
 
-3.  Lists the vendors who have handled more maintenance requests than the average number of requests per vendor, along with their service category and total request count.
+3. Lists the vendors who have handled more maintenance requests than the average number of requests per vendor, along with their service category and total request count.
 
 ![Query 3](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%203.png?raw=true)
 
@@ -69,13 +69,13 @@ Query 5 reveals that checks have a 50% failure rate — by far the most unreliab
 
 Query 6 demonstrates REGEXP for flexible pattern matching, which is useful in database management for finding tenants based on name patterns. In practice, a property manager might use this type of query to pull up all tenants from a certain family (e.g., multiple Clarks or Lewises who may be related), to cross-reference names for duplicate account detection, or to quickly filter a large tenant list during targeted outreach campaigns such as lease renewal reminders.
 
-7.  Lists every tenant with an active lease (ending in 2024 or later), the number of bedrooms and bathrooms in their unit, and the property they live in.
+7. Lists every tenant with an active lease (ending in 2024 or later), the number of bedrooms and bathrooms in their unit, and the property they live in.
 
 ![Query 7](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%207.png?raw=true)
 
 Query 7 gives management a complete roster of all current tenants, where they live, and what type of unit they occupy.
 
-8.  Lists the number of leases and the average monthly rent for each bedroom count (1- bedroom, 2-bedroom, 3-bedroom).
+8. Lists the number of leases and the average monthly rent for each bedroom count (1- bedroom, 2-bedroom, 3-bedroom).
 
 ![Query 8](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%208.png?raw=true)
 
@@ -87,7 +87,7 @@ Query 8 helps management understand their pricing structure. It shows that 2-bed
 
 Query 9 is the maintenance team's daily dashboard. It shows every outstanding issue, how longit has been open, and which vendor is responsible. The "Outlets in bedroom sparking" issue marked as Urgent is a safety hazard that demands immediate follow-up.
 
-10.  Lists all tenants who own pets, along with the pet's name, type, breed, and the propertythe tenant currently lives in. Only tenants with active leases are included
+10. Lists all tenants who own pets, along with the pet's name, type, breed, and the propertythe tenant currently lives in. Only tenants with active leases are included
 
 ![Query 10](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%2010.png?raw=true)
 
