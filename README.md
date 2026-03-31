@@ -5,7 +5,7 @@ Group Project 1
  
  • Mikey Cap-811608237- (https://github.com/mgc96398/Data-Model-Project/tree/main)
  
- • William Barret-
+ • William Barret-811181795 - (https://github.com/Wbarrett1013/MIST4610-GroupOne-Project-1)
  
  •Talmage Lee-811563323-
  
