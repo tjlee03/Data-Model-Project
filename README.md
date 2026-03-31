@@ -61,3 +61,6 @@ Our team's data model is based on the management of multi-unit residential prope
 
 10.
 ![Query 10](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%2010.png?raw=true)
+
+## Matrix:
+![Matrix](https://github.com/mgc96398/Data-Model-Project/blob/main/Matrix.png?raw=true)
