@@ -95,3 +95,5 @@ Query 10 allows management to see exactly which tenants have pets and at which p
 
 ## Matrix:
 ![Matrix](https://github.com/mgc96398/Data-Model-Project/blob/main/Matrix.png?raw=true)
+![Matrix](<img width="613" height="289" alt="Matrix" src="https://github.com/user-attachments/assets/8a4527d8-b305-4fc8-82ab-89e509767831" />)
+
