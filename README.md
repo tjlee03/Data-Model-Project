@@ -31,70 +31,80 @@ Our team's data model is based on the management of multi-unit residential prope
 ![Amenity Bookings](https://github.com/MakennaClark/Data-Model-Project/blob/main/AmenityBookings.png?raw=true)
 
 
-## Ten Query Descriptions and Justifcations (1-6 Complex, 7-10 Simple):
-# Query 1
-
+# Ten Query Descriptions and Justifcations (1-6 Complex, 7-10 Simple):
+## Query 1
 Description: Lists the name of each property, the number of completed payments received, and the total revenue collected from those payments. Only properties that have collected more than $2,000 in total completed payments are included. Results are ordered by total revenue in descending order.
 
 ![Query 1](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%201%20.png?raw=true)
 
 Justification: This query allows management to quickly identify the top revenue-generating properties. A property manager overseeing a portfolio of 25+ properties needs to know which locations are bringing in the most income so they can allocate maintenance budgets, staffing, and marketing resources accordingly. Properties falling below the $2,000 threshold may warrant further investigation into vacancy rates or payment collection issues.
 
-
-2. Lists all tenants who have never submitted a maintenance request.
+## Query 2
+Description: This query lists all tenants who have never submitted a maintenance request. It compares the full tenant list against the maintenance request table and returns only those tenants with no matching records.
 
 ![Query 2](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%202.png?raw=true)
 
-Query 2 allows management to identify tenants who have never reported any issues. This could mean two things: either those tenants are satisfied, or they are not reporting problems that could be getting worse over time. A proactive manager could reach out to these tenants for a satisfaction check or schedule a routine unit inspection to catch hidden issues like water damage or pest problems before they become expensive.
+Justification: This helps management identify tenants who have never reported any issues. This could indicate tenant satisfaction, or it could signal unreported problems such as water damage, pest issues, or HVAC failures that are getting worse over time. A proactive manager could use this list to schedule routine unit inspections or send out satisfaction surveys, ultimately preventing small issues from becoming costly repairs.
 
-3. Lists the vendors who have handled more maintenance requests than the average number of requests per vendor, along with their service category and total request count.
+## Query 3
+Description: This query lists the vendors who have handled more maintenance requests than the average number of requests per vendor, along with their service category and total request count. A subquery calculates the overall average, and the outer query filters for vendors exceeding that threshold.
 
 ![Query 3](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%203.png?raw=true)
 
-Query 3 allows management to identify which vendors are being relied on the most. Vendors with above-average workloads (like Quick Fix Appliances with 3 requests) may need contract renegotiation for volume discounts, or management may want to evaluate whether they should bring in a second vendor in that category to distribute the work.
+Justification: This query identifies which vendors are being relied on the most. Vendors with above average workloads may need contract renegotiation for volume discounts, or management may want to bring in a second vendor in that service category to distribute the work and reduce response times. It also helps flag potential over dependence on a single vendor, which poses a risk if that vendor becomes unavailable.
 
-4. Lists the properties whose unit occupancy rate falls below the overall company average. The query calculates the number of occupied units and the occupancy percentage for each qualifying property
+## Query 4
+Description: This query lists the properties whose unit occupancy rate falls below the overall company average. It calculates the number of occupied units and the occupancy percentage for each property, then compares each property's rate against the company wide average using a subquery.
 
 ![Query 4](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%204.png?raw=true)
 
-Query 4 is essential for any property manager because vacant units directly equal lost revenue. By comparing each property's occupancy to the company-wide average, management can immediately see which properties are underperforming.
+Justification: Vacant units directly equal lost revenue. By comparing each property's occupancy to the company wide average, management can immediately identify underperforming properties that may need targeted marketing, rent adjustments, unit renovations, or a change in leasing strategy. This makes sure resources are directed where they will have the greatest impact on the bottom line.
 
-5. Lists each payment method used by tenants, the total number of transactions made with that method, the number of completed and failed transactions, and the failure rate as a percentage. Results are ordered by failure rate in descending order
+## Query 5
+Description: This query lists each payment method used by tenants, the total number of transactions made with that method, the number of completed and failed transactions, and the failure rate as a percentage. Results are ordered by failure rate in descending order.
 
 ![Query 5](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%205.png?raw=true)
 
-Query 5 reveals that checks have a 50% failure rate — by far the most unreliable payment method — while Credit Card, Debit Card, and Bank Transfer have zero failures. A property manager can use this to justify changing the company's payment policy, such as adding a processing fee for checks or requiring tenants to switch to electronic payment methods. Failed payments create accounting overhead and delay cash flow, so reducing check usage would directly improve operational efficiency. 
+Justification: This query reveals which payment methods are the most and least reliable. For example, if checks show a significantly higher failure rate than electronic methods, a property manager can justify updating the company's payment policy, such as adding a processing fee for checks or requiring tenants to switch to electronic payments. Failed payments create accounting overhead and delay cash flow, so reducing unreliable payment methods directly improves operational efficiency.
 
-6. Lists tenants whose last names match common surname patterns (Clark, Hall, Walker, or Lewis), along with their monthly rent and property name, but only for tenants whose leases are still active (ending on or after April 1, 2024)
+## Query 6
+Description: This query lists tenants whose last names match common surname patterns (such as Clark, Hall, Walker, or Lewis) using a REGEXP operator, along with their monthly rent and property name. Only tenants with active leases ending on or after April 1, 2024 are included.
 
 ![Query 6](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%206.png?raw=true)
 
-Query 6 demonstrates REGEXP for flexible pattern matching, which is useful in database management for finding tenants based on name patterns. In practice, a property manager might use this type of query to pull up all tenants from a certain family (e.g., multiple Clarks or Lewises who may be related), to cross-reference names for duplicate account detection, or to quickly filter a large tenant list during targeted outreach campaigns such as lease renewal reminders.
+Justification: This query demonstrates the use of REGEXP for flexible pattern matching within a database. In practice, a property manager might use this type of query to identify potentially related tenants sharing a surname, to cross reference names for duplicate account detection, or to quickly filter a large tenant list during targeted outreach campaigns such as lease renewal reminders or compliance notices.
 
-7. Lists every tenant with an active lease (ending in 2024 or later), the number of bedrooms and bathrooms in their unit, and the property they live in.
+## Query 7 
+Description: This query lists every tenant with an active lease ending in 2024 or later, the number of bedrooms and bathrooms in their unit, and the property they live in. It joins the Tenant, Lease, Unit, and Property tables to pull all of this information together.
 
 ![Query 7](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%207.png?raw=true)
 
-Query 7 gives management a complete roster of all current tenants, where they live, and what type of unit they occupy.
+Justification: This gives management a complete roster of all current tenants, their locations, and the type of unit they occupy. It serves as a foundational reference for day to day operations, from coordinating maintenance schedules by unit type to planning move out logistics to making sure lease records are accurate and up to date across all properties.
 
-8. Lists the number of leases and the average monthly rent for each bedroom count (1- bedroom, 2-bedroom, 3-bedroom).
+## Query 8 
+Description: This query lists the number of leases and the average monthly rent for each bedroom count (1 bedroom, 2 bedroom, 3 bedroom). It groups leases by the number of bedrooms in the associated unit and calculates aggregate statistics for each group.
 
 ![Query 8](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%208.png?raw=true)
 
-Query 8 helps management understand their pricing structure. It shows that 2-bedroom units are the most commonly leased (10 leases), while 3-bedroom units command the highest average rent at $1,783. A manager could use this to evaluate whether their pricing is competitive with the local Athens rental market, or to decide which unit types to prioritize in future property acquisitions or renovations.
+Justification: This helps management understand the portfolio's pricing structure and unit mix. It reveals which unit types are most commonly leased and how average rent varies by size. A manager could use this data to evaluate whether current pricing is competitive with the local rental market, to decide which unit types to prioritize in future acquisitions or renovations, or to identify pricing gaps that could be adjusted to maximize revenue.
 
-9. Lists all maintenance requests that are not yet resolved (Open, In Progress, or Urgent), along with the assigned vendor and their service category. Results are sorted by the date the issue was reported
+## Query 9 
+Description: This query lists all maintenance requests that are not yet resolved, meaning they have a status of Open, In Progress, or Urgent. It also shows the assigned vendor and their service category. Results are sorted by the date the issue was reported so that the oldest unresolved issues appear first.
 
 ![Query 9](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%209.png?raw=true)
 
-Query 9 is the maintenance team's daily dashboard. It shows every outstanding issue, how longit has been open, and which vendor is responsible. The "Outlets in bedroom sparking" issue marked as Urgent is a safety hazard that demands immediate follow-up.
+Justification: This query serves as the maintenance team's daily operational dashboard. It shows every outstanding issue, how long it has been open, and which vendor is responsible. Sorting by report date makes sure that the oldest and potentially most neglected issues are surfaced first. Urgent items like electrical hazards or water leaks demand immediate follow up, and this query ensures nothing falls through the cracks.
 
-10. Lists all tenants who own pets, along with the pet's name, type, breed, and the propertythe tenant currently lives in. Only tenants with active leases are included
+## Query 10
+Description: This query lists all tenants who own pets, along with the pet's name, type, breed, and the property the tenant currently lives in. Only tenants with active leases are included in the results.
 
 ![Query 10](https://github.com/mgc96398/Data-Model-Project/blob/main/Query%2010.png?raw=true)
 
-Query 10 allows management to see exactly which tenants have pets and at which properties. This is important for ensuring pet deposits have been collected, verifying that pets comply with breed or size restrictions in the lease, and planning pet-friendly amenities or services. 
+Justification: This allows management to maintain a clear record of pets across the portfolio. It is important for verifying that pet deposits have been collected, making sure pets comply with breed or size restrictions outlined in the lease agreement, scheduling pet related property inspections, and planning pet friendly amenities or services. Accurate pet tracking also reduces liability and helps resolve neighbor complaints more efficiently.
 
 ## Matrix:
 ![Matrix](https://github.com/tjlee03/Data-Model-Project/blob/main/Matrix.png?raw=true)
 
+## Database Information: 
+Name of the database: al_Group_21479_G1
+Additional information: Each query listed above is marked in the database using stored procedures which can be called using the following format: CALL Q1();
